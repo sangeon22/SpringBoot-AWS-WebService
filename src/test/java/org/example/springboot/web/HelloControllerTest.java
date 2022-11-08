@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(controllers = {HelloController.class})
 public class HelloControllerTest {
     @Autowired
-    private MockMVC mvc;
+    private MockMvc mvc;
 
     @Test
     public void hello_return() throws Exception{
