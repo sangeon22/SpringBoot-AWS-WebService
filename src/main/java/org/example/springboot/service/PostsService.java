@@ -30,7 +30,7 @@ public class PostsService {
     @Transactional
     public PostsResponseDto findById(Long id) {
         Posts posts = postsRepository.findById(id)
-                .orElseThrow(()-> new IllegalStateException("해당 사용자가 없ㅅ브니다. id = "+id));
+                .orElseThrow(()-> new IllegalStateException("해당 사용자가 없습니다. id = "+id));
         return new PostsResponseDto(posts);
     }
 }
