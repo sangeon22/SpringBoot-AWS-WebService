@@ -26,7 +26,7 @@ public class PostsService {
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = postsRepository.findById(id)
-                .orElseThrow(()-> new IllegalStateException("해당 사용자가 없습니다. id = "+id));
+                .orElseThrow(() -> new IllegalStateException("해당 사용자가 없습니다. id = " + id));
         posts.update(requestDto.getTitle(), requestDto.getContent());
         return id;
     }
@@ -34,14 +34,22 @@ public class PostsService {
     @Transactional
     public PostsResponseDto findById(Long id) {
         Posts posts = postsRepository.findById(id)
-                .orElseThrow(()-> new IllegalStateException("해당 사용자가 없습니다. id = "+id));
+                .orElseThrow(() -> new IllegalStateException("해당 사용자가 없습니다. id = " + id));
         return new PostsResponseDto(posts);
     }
 
     @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc(){
+    public List<PostsListResponseDto> findAllDesc() {
         return postsRepository.findAllDesc().stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete(Long id) {
+//        postsRepository.deleteById(id);
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("해당 사용자가 없습니다. id = " + id));
+        postsRepository.delete(posts);
     }
 }
