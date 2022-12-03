@@ -24,5 +24,11 @@
 [배포자동화, 무중단 배포 과정은 아직 진행 중]
 - Travis CI (유료화로 인하여 오픈 소스 CI Tool로 GitHub Action 진행예정)
 - Nginx
+<br>
+
+## 도메인
+http://ec2-43-200-229-1.ap-northeast-2.compute.amazonaws.com:8080/
+<br>
+<br>
 
 ![image](https://user-images.githubusercontent.com/86394597/205285318-1b549b19-42e8-49aa-9ad9-186e2382a2f6.png)
