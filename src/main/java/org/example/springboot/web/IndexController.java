@@ -33,7 +33,7 @@ public class IndexController {
 
     @GetMapping("/posts/save")
     public String postsSave(Authentication authentication, Model model) {
-        model.addAttribute("userName", authentication.getName());
+        model.addAttribute("name", authentication.getName());
         return "posts-save";
     }
 
