@@ -5,6 +5,7 @@ import org.example.springboot.config.auth.LoginUser;
 import org.example.springboot.config.auth.dto.SessionUser;
 import org.example.springboot.service.PostsService;
 import org.example.springboot.web.dto.PostsResponseDto;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,8 @@ public class IndexController {
     }
 
     @GetMapping("/posts/save")
-    public String postsSave() {
+    public String postsSave(Authentication authentication, Model model) {
+        model.addAttribute("userName", authentication.getName());
         return "posts-save";
     }
 
